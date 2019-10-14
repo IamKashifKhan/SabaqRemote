@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SabaqRemote"
+             x:Class="SabaqRemote.MainPage">
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Image  Grid.Row="0" Grid.Column="0"  Source="{local:ImageResource SabaqRemote.Images.background.png}"  Aspect="Fill"    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  />
+
+        <Grid Padding="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" x:Name="RecordCount" IsVisible="False"  Text="Reset" FontSize="Large" TextColor="Red"    HorizontalTextAlignment="Start"     VerticalOptions="FillAndExpand" >
+                <!--<Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Resetpointer"></TapGestureRecognizer>
+            </Label.GestureRecognizers>-->
+            </Label>
+
+
+            <!-- Place new controls here -->
+            <Picker x:Name="BthPicker" InputTransparent="False" IsVisible="False"   SelectedIndexChanged="SelectedBthdevice" TextColor="White"     ></Picker>
+
+
+
+
+            <ListView Grid.Column="0"  Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2"   VerticalOptions="Fill" HorizontalOptions="FillAndExpand"
+                x:Name="ResulList" BackgroundColor="Transparent"    IsVisible="True"  HasUnevenRows="True" SeparatorVisibility="None"  SeparatorColor="Transparent" ItemTapped="ResultList_ItemTapped"
+                   CachingStrategy="RetainElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+
+                            <ViewCell.View >
+                                <StackLayout  Padding="20" BackgroundColor="Transparent"   VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand">
+
+                                    <Frame Padding="0" Margin="0" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BorderColor="#FF9601">
+                                    <Grid  BackgroundColor="Transparent"  Padding="10"    RowSpacing="2" ColumnSpacing="0" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition   Height="40" ></RowDefinition>
+                                            <RowDefinition   Height="40" ></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+
+
+                                        <Label LineBreakMode="WordWrap" FontSize="Large"  Text="Parameter" Grid.Column="0"   Grid.Row="0"  TextColor="#FF9601"    HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        </Label>
+                                        <Label LineBreakMode="WordWrap" FontSize="Large"  Text="{Binding TxtParameter}"  Grid.Column="1"   Grid.Row="0"  TextColor="#FF9601"    HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        </Label>
+                                        <Label LineBreakMode="WordWrap" FontSize="Large"  Text="Value" Grid.Column="0"   Grid.Row="1"  TextColor="#FF9601"    HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        </Label>
+                                        <Label LineBreakMode="WordWrap" FontSize="Large"  Text="{Binding TxtValue}"  Grid.Column="1"   Grid.Row="1"  TextColor="#FF9601"    HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        </Label>
+
+
+                                    </Grid>
+                                    </Frame>
+
+                                </StackLayout>
+
+
+
+
+
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <Button  Grid.Row="0" Grid.Column="2"  x:Name="LikeButton"  HorizontalOptions="FillAndExpand"  BackgroundColor="Transparent" BorderColor="Blue"     Clicked="LikeButton_Clicked" Pressed="LikeButton_Pressed" Released="LikeButton_Released" VerticalOptions="Start"></Button>
+
+
+        </Grid>
+    </Grid>
+
+</ContentPage>
